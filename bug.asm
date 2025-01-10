@@ -1,0 +1,3 @@
+mov eax, [ebx + ecx*4 + 0x10] ; Accessing memory outside the bounds of the allocated array
+
+This instruction attempts to access memory at an address calculated from ebx, ecx, and a constant offset.  If ecx is sufficiently large, this will lead to accessing memory outside the allocated space for the array, potentially causing a segmentation fault or other unpredictable behavior.  This is especially common if ecx is an unvalidated user input.
